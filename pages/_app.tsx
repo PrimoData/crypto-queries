@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
 
     <ThirdwebProvider
-      activeChain="arbitrum"
+      activeChain="arbitrum-goerli"
       clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
       supportedWallets={[
         metamaskWallet(),

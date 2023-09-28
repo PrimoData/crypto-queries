@@ -3,6 +3,7 @@ import axios from 'axios';
 import CodeEditor from '../components/CodeEditor';
 import Tables from '../components/Tables';
 import QueryResults from '../components/QueryResults';
+import MintNFT from '../components/MintNFT';
 
 const IndexPage = () => {
   const [query, setQuery] = useState('');
@@ -29,6 +30,7 @@ const IndexPage = () => {
         <button onClick={runQuery} className="px-4 py-2 bg-blue-500 text-white rounded">
           Run Query
         </button>
+        <MintNFT query={query} />
         <QueryResults results={results} />
       </div>
     </div>

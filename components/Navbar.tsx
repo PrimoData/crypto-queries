@@ -12,7 +12,7 @@ const Navbar = () => {
                     <div className="text-2xl pr-5">Crypto Queries</div>
                     <div className="flex space-x-4">
                         <Link href="/">
-                            Query
+                            Editor
                         </Link>
                         <Link href="/leaderboard">
                             Leaderboard
@@ -28,6 +28,7 @@ const Navbar = () => {
                             switchToActiveChain={true}
                             modalSize={"compact"}
                         />
+                        
                     </div>
                 </div>
             </div>
