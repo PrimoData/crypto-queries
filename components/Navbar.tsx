@@ -18,17 +18,20 @@ const Navbar = () => {
                             Leaderboard
                         </Link>
                     </div>
-                    <div className="ml-auto flex items-center space-x-4">
-
-                        <SIDBadge />
+                    <div className="ml-auto flex items-center space-x-4">                        
 
                         <ConnectWallet
-                            theme={"light"}
-                            auth={{ loginOptional: false }}
+                            theme={"light"}                            
                             switchToActiveChain={true}
                             modalSize={"compact"}
+                            detailsBtn={() => {
+                                return (
+                                    <SIDBadge />
+                                );
+                            }}                            
                         />
-                        
+
+
                     </div>
                 </div>
             </div>

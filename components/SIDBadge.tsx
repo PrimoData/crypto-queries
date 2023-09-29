@@ -36,9 +36,7 @@ const SIDBadge = () => {
       {name ? (
         <>{name}</>
       ) : (
-        <a href="https://space.id/tld/2" target="_blank" rel="noopener noreferrer">
-          Get .arb domain
-        </a>
+        <>{address}</>
       )}
     </Badge>
   );
