@@ -12,16 +12,17 @@ const Navbar = () => {
                     <div className="text-2xl pr-5">Crypto Queries</div>
                     <div className="flex space-x-4">
                         <Link href="/">
-                            Editor
+                            SQL
                         </Link>
                         <Link href="/leaderboard">
-                            Leaderboard
+                            Streaming
                         </Link>
                     </div>
                     <div className="ml-auto flex items-center space-x-4">                        
 
                         <ConnectWallet
-                            theme={"light"}                            
+                            theme={"light"}
+                            className={"green-button"}                          
                             switchToActiveChain={true}
                             modalSize={"compact"}
                             detailsBtn={() => {

@@ -27,7 +27,7 @@ const IndexPage = () => {
         <Tables onSelect={(event) => handleSelect(event.currentTarget.textContent || '')} />
         
         <h2 className="text-lg font-bold mb-4 mt-4">SQL NFTs</h2>
-        <SQLNFTs />
+        <SQLNFTs onSelect={(event) => handleSelect(event.currentTarget.textContent || '')} />
 
       </div>
       <div className="w-3/4 p-4 overflow-auto">

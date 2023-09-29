@@ -24,6 +24,8 @@
     "react": "latest",
     "react-ace": "^10.1.0",
     "react-dom": "latest",
+    "streamr-client": "^8.5.5",
+    "streamr-client-react": "^3.0.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },

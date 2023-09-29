@@ -62,7 +62,7 @@ const Tables: FC<TablesProps> = ({ onSelect }) => {
                     <AccordionContent className="flex items-center space-x-2">
                         <div className="flex items-center space-x-2" onClick={onSelect}>
                             <code>{item.code}</code>
-                            <ChevronsRight  size={18} />
+                            <ChevronsRight size={18} />
                         </div>
                     </AccordionContent>
                 </AccordionItem>

@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMintNFT, useContract, Web3Button, useAddress } from "@thirdweb-dev/react";
+import { ethers } from 'ethers';
+
+const SID = require('@siddomains/sidjs').default;
+const SIDfunctions = require('@siddomains/sidjs');
 
 const MintNFT = ({
     query,
 }: {
     query: string | null;
 }) => {
+    const [name, setName] = useState(null);
     const address = useAddress() ?? "";
     const contractAddress = "0x4091Af43772F9B84e6eCA13ef358167C761D5cf9";
     const { contract } = useContract(contractAddress);
     const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
+
+    useEffect(() => {
+        async function fetchName() {
+          const rpc = "https://arb1.arbitrum.io/rpc";
+          const provider = new ethers.providers.JsonRpcProvider(rpc);
+          const chainId = 42161; // Arbitrum One chain id
+          const sid = new SID({ provider, sidAddress: SIDfunctions.getSidAddress(chainId) });
+    
+          try {
+            const retrievedName = await sid.getName(address);
+            const arb_name = retrievedName.name;
+            console.log("MINT Name:", arb_name);
+            setName(arb_name);
+          } catch (error) {
+            console.error("Error fetching name:", error);
+          }
+        }
+    
+        fetchName();
+      }, [address]);
 
     return (
         <Web3Button
@@ -23,6 +48,10 @@ const MintNFT = ({
                     metadata: {
                         name: "SQL NFT",
                         description: query,
+                        properties: {
+                            createdByAddress: address,
+                            createdByArb: name,
+                        }
                     },
                     to: address, // Use useAddress hook to get current wallet address
                 })

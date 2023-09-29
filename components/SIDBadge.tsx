@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Badge } from "@/components/ui/badge";
 import { useAddress } from "@thirdweb-dev/react";
 import { ethers } from 'ethers';
 
@@ -32,13 +31,13 @@ const SIDBadge = () => {
   }, [address]);
 
   return (
-    <Badge variant="outline" style={{ backgroundColor: "#1EEFA4" }}>
+    <button className="green-button px-4 py-2 rounded"> 
       {name ? (
         <>{name}</>
       ) : (
-        <>{address}</>
+        <>{`${address}`.slice(0, 4)}...{`${address}`.slice(-4)}</>
       )}
-    </Badge>
+    </button>
   );
 };
 
