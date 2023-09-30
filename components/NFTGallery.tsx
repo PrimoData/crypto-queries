@@ -19,7 +19,6 @@ const NFTGallery: FC<TablesProps> = ({ onSelect, queryType }) => {
   return (
     <>
       <div className="overflow-hidden">
-        <h1>{queryType}</h1>
         {loadingNfts ? (
           <p>Loading...</p>
         ) : (

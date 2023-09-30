@@ -7,8 +7,20 @@ import {
 } from '@/components/ui/collapsible';
 const StreamrClient = require('streamr-client');
 
+// Define the type of your message
+type Message = {
+  key: string;
+  value: {
+    header: {
+      height: number;
+      time: string;
+    };
+  };
+};
+
 const LiveStream = () => {
-  const [messages, setMessages] = useState<string[]>([]);
+  // Adjust the type of messages state
+  const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
     const streamr = new StreamrClient({
@@ -19,14 +31,13 @@ const LiveStream = () => {
 
     const subscription = streamr.subscribe(
       '0x7277c78c02a4192ef8c48f5f4c529278d0e447fc/kyve/kyve-1/0',
-      (message: string) => {
-        // Handle the incoming data here
+      (message: Message) => {
+        // Adjust the type of message here
         setMessages((prevMessages) => [...prevMessages, message]);
       }
     );
 
     return () => {
-      // Cleanup subscription when component unmounts
       streamr.unsubscribe();
     };
   }, []);
@@ -37,8 +48,9 @@ const LiveStream = () => {
         <Collapsible key={index}>
           <CollapsibleTrigger>{JSON.stringify(message.key)}</CollapsibleTrigger>
           <CollapsibleContent>
-            "Height: "{JSON.stringify(message.value.header.height)}
-            ", Time: "{JSON.stringify(message.value.header.time)}
+            {`Height: ${JSON.stringify(
+              message.value.header.height
+            )}, Time: ${JSON.stringify(message.value.header.time)}`}
           </CollapsibleContent>
         </Collapsible>
       ))}
