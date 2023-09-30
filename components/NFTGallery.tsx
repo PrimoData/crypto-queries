@@ -28,7 +28,10 @@ const NFTGallery: FC<TablesProps> = ({ onSelect, queryType }) => {
               [...nfts]
                 .reverse()
                 .filter(
-                  (nft) => nft.metadata.properties?.queryType === queryType
+                  (nft) =>
+                    nft.metadata.properties &&
+                    'queryType' in nft.metadata.properties &&
+                    nft.metadata.properties?.queryType === queryType
                 ) // Filter based on queryType
                 .map((nft, index) => (
                   <div

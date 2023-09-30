@@ -10,22 +10,19 @@ const NL = () => {
   const [inputText, setInputText] = useState('');
   const [response, setResponse] = useState('');
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
+    const response = await axios.post('/api/chat', {
+      messages: [{ role: 'system', content: inputText }],
+    });
+    setResponse(response.data);
+  };
 
-    try {
-      const response = await axios.post('/api/chat', {
-        messages: [{ role: 'system', content: inputText }],
-      });
-
-      setResponse(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleSelect = (newQuery: string) => {
+    setInputText(newQuery);
   };
 
   return (
@@ -43,16 +40,17 @@ const NL = () => {
           style={{ display: 'flex', flexDirection: 'column', height: '50%' }}
         >
           <h2 className="text-lg font-bold mb-4 mt-4">NL NFTs</h2>
-          <NFTGallery queryType="NL" />
+          <NFTGallery
+            onSelect={(event) =>
+              handleSelect(event.currentTarget.textContent || '')
+            }
+            queryType="NL"
+          />
         </div>
       </div>
       <div className="w-1/2 p-4">
         <h1 className="text-2xl font-bold mb-4">AI NL Queries</h1>
-        {/* <CodeEditor value={query} onChange={setQuery} /> */}
 
-        {/* <button onClick={runQuery} className="px-4 py-2 bg-blue-500 text-white rounded">
-          Run Query
-        </button> */}
         <div className="flex w-full items-center space-x-2">
           <Input
             type="text"
