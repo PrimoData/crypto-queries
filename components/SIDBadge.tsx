@@ -8,7 +8,6 @@ const SIDfunctions = require('@siddomains/sidjs');
 const SIDBadge = () => {
   const [name, setName] = useState(null);
   const address = useAddress();
-  // const address = "0x36C172CACe537D1DbE36a37531cB338dd416f65a";
 
   useEffect(() => {
     async function fetchName() {

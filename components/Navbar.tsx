@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ConnectWallet } from '@thirdweb-dev/react';
 import SIDBadge from './SIDBadge';
+import BuyArbButton from './BuyArbButton';
 
 const Navbar = () => {
     return (
@@ -19,6 +20,7 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className="ml-auto flex items-center space-x-4">                        
+                        <BuyArbButton />
 
                         <ConnectWallet
                             theme={"light"}
@@ -31,7 +33,6 @@ const Navbar = () => {
                                 );
                             }}                            
                         />
-
 
                     </div>
                 </div>

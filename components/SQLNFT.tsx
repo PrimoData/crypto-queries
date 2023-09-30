@@ -35,8 +35,8 @@ const SQLNFTs: FC<TablesProps> = ({ onSelect }) => {
                                     </div>
                                     {nft.metadata.properties && 'createdByAddress' in nft.metadata.properties && (
                                         <Badge variant="outline" style={{ backgroundColor: "#1EEFA4" }}>
-                                        Created by: {`${(nft.metadata.properties.createdByArb as string) || (nft.metadata.properties.createdByAddress as string).slice(0, 4)}${(nft.metadata.properties.createdByArb ? '' : `...${(nft.metadata.properties.createdByAddress as string).slice(-4)}`)}`}
-                                    </Badge>
+                                            Created by: {`${(nft.metadata.properties.createdByArb as string) || (nft.metadata.properties.createdByAddress as string).slice(0, 4)}${(nft.metadata.properties.createdByArb ? '' : `...${(nft.metadata.properties.createdByAddress as string).slice(-4)}`)}`}
+                                        </Badge>
                                     )}
                                 </div>
                             ))}
