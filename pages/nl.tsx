@@ -15,10 +15,12 @@ const NL = () => {
   };
 
   const handleSubmit = async () => {
-    const response = await axios.post('/api/chat', {
-      messages: [{ role: 'system', content: inputText }],
-    });
-    setResponse(response.data);
+    try {
+      const response = await axios.post('/api/chat', { inputText });
+      setResponse(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleSelect = (newQuery: string) => {
