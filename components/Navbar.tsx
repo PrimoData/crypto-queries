@@ -15,8 +15,8 @@ const Navbar = () => {
                         <Link href="/">
                             SQL
                         </Link>
-                        <Link href="/leaderboard">
-                            Streaming
+                        <Link href="/nl">
+                            NL
                         </Link>
                     </div>
                     <div className="ml-auto flex items-center space-x-4">                        

@@ -1,0 +1,10 @@
+{
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "vs-code-prettier-eslint.prettierLast": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

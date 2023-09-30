@@ -7,8 +7,10 @@ const SIDfunctions = require('@siddomains/sidjs');
 
 const MintNFT = ({
     query,
+    queryType,
 }: {
     query: string | null;
+    queryType: string | null;
 }) => {
     const [name, setName] = useState(null);
     const address = useAddress() ?? "";
@@ -39,25 +41,26 @@ const MintNFT = ({
     return (
         <Web3Button
             connectWallet={{
-                btnTitle: "Create SQL NFT",
+                btnTitle: "Create Query NFT",
             }} contractAddress={contractAddress}
             {...(query ? null : { isDisabled: true })}
-            onSuccess={(result) => alert("Created SQL NFT!")}
+            onSuccess={(result) => alert("Created Query NFT!")}
             action={() =>
                 mintNft({
                     metadata: {
-                        name: "SQL NFT",
+                        name: "Query NFT",
                         description: query,
                         properties: {
                             createdByAddress: address,
                             createdByArb: name,
+                            queryType: queryType,
                         }
                     },
                     to: address, // Use useAddress hook to get current wallet address
                 })
             }
         >
-            Create SQL NFT
+            Create Query NFT
         </Web3Button>
     );
 };
