@@ -22,27 +22,35 @@ const IndexPage = () => {
   return (
     <div className="flex h-screen border-r">
       <div className="w-1/4 p-4">
-        
         <h2 className="text-lg font-bold mb-4">Tables</h2>
-        <Tables onSelect={(event) => handleSelect(event.currentTarget.textContent || '')} />
-        
-        <h2 className="text-lg font-bold mb-4 mt-4">SQL NFTs</h2>
-        <NFTGallery onSelect={(event) => handleSelect(event.currentTarget.textContent || '')} queryType="SQL" />
+        <Tables
+          onSelect={(event) =>
+            handleSelect(event.currentTarget.textContent || '')
+          }
+        />
 
+        <h2 className="text-lg font-bold mb-4 mt-4">SQL NFTs</h2>
+        <NFTGallery
+          onSelect={(event) =>
+            handleSelect(event.currentTarget.textContent || '')
+          }
+          queryType="SQL"
+        />
       </div>
       <div className="w-3/4 p-4 overflow-auto">
-
         <h1 className="text-2xl font-bold mb-4">SQL Query Editor</h1>
         <CodeEditor value={query} onChange={setQuery} />
-        
-        <button onClick={runQuery} className="px-4 py-2 bg-blue-500 text-white rounded">
+
+        <button
+          onClick={runQuery}
+          className="px-4 py-2 bg-blue-500 text-white rounded"
+        >
           Run Query
         </button>
-        
+
         <MintNFT query={query} queryType="SQL" />
-        
+
         <QueryResults results={results} />
-      
       </div>
     </div>
   );

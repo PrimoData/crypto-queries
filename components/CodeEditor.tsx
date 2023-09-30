@@ -8,8 +8,11 @@ interface CodeEditorProps {
   onChange: (value: string, event?: ChangeEvent<any>) => void;
 }
 
-const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }: CodeEditorProps) => {
-    return (
+const CodeEditor: React.FC<CodeEditorProps> = ({
+  value,
+  onChange,
+}: CodeEditorProps) => {
+  return (
     <AceEditor
       mode="sql"
       theme="monokai"
