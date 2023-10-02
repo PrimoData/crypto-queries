@@ -13,7 +13,7 @@ const Navbar = () => {
           <div className="text-2xl pr-5">Crypto Queries</div>
           <div className="flex space-x-4">
             <Link href="/">SQL</Link>
-            <Link href="/nl">NL</Link>
+            <Link href="/ai">AI</Link>
           </div>
           <div className="ml-auto flex items-center space-x-4">
             <BuyArbButton />
