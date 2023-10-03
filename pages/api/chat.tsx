@@ -15,13 +15,24 @@ export default async function handler(
   const fullPrompt =
     `Prompt: ${prompt}, KYVE Streamr Data: ${messagesString}`.substring(
       0,
-      1000 // Max prompt length
+      16000 // Max prompt length
     );
 
   try {
     const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: 'user', content: fullPrompt }],
-      model: 'gpt-3.5-turbo',
+      messages: [
+        {
+          role: 'system',
+          content:
+            'You are being provided with KYVE data from Streamr. The data is streaming and in JSON format. The User is going to ask you a question about the data or ask you to do something with the data.',
+        },
+        {
+          role: 'user',
+          content: fullPrompt,
+        },
+      ],
+      model: 'gpt-3.5-turbo-16k',
+      temperature: 0,
     });
 
     // Full response

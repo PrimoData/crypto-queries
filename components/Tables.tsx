@@ -17,46 +17,43 @@ const data = [
   {
     value: 'item-1',
     image:
-      'https://assets.coingecko.com/coins/images/12559/thumb/Avalanche_Circle_RedWhite_Trans.png?1670992574',
-    text: 'Avalanche',
-    code: 'primo-data-338518.kyve.pool_1',
+      'https://assets.coingecko.com/coins/images/1481/thumb/cosmos_hub.png?1555657960',
+    text: 'Cosmos Hub',
+    code: '`primo-data-338518.kyve.cosmos_pool_0`',
   },
   {
     value: 'item-2',
     image:
-      'https://assets.coingecko.com/coins/images/2069/thumb/Stacks_logo_full.png?1604112510',
-    text: 'Stacks',
-    code: 'primo-data-338518.kyve.pool_2',
+      'https://assets.coingecko.com/coins/images/16724/thumb/osmo.png?1632763885',
+    text: 'Osmosis',
+    code: '`primo-data-338518.kyve.osmosis_pool_1`',
   },
   {
     value: 'item-3',
     image:
-      'https://assets.coingecko.com/coins/images/11090/thumb/InjXBNx9_400x400.jpg?1674707499',
-    text: 'Celo',
-    code: 'primo-data-338518.kyve.pool_7',
+      'https://assets.coingecko.com/coins/images/30789/small/bxLJkEWw_400x400.jpg?1687314435',
+    text: 'Archway',
+    code: '`primo-data-338518.kyve.archway_pool_2`',
   },
   {
     value: 'item-4',
     image:
-      'https://assets.coingecko.com/coins/images/1481/thumb/cosmos_hub.png?1555657960',
-    text: 'Cosmos',
-    code: 'primo-data-338518.kyve.pool_9',
-  },
-  {
-    value: 'item-5',
-    image:
-      'https://assets.coingecko.com/coins/images/16724/thumb/osmo.png?1632763885',
-    text: 'Osmosis',
-    code: 'primo-data-338518.kyve.pool_29',
+      'https://assets.coingecko.com/coins/images/27277/thumb/V-65_xQ1_400x400.jpeg?1663121730',
+    text: 'Axelar',
+    code: '`primo-data-338518.kyve.axelar_pool_3`',
   },
 ];
 
 const Tables: FC<TablesProps> = ({ onSelect }) => {
   return (
-    <Accordion type="single" collapsible>
+    <Accordion
+      type="single"
+      collapsible
+      className="bg-white shadow-xl ring-1 ring-gray-900/5 sm:rounded-lg m-2 p-0"
+    >
       {data.map((item, index) => (
-        <AccordionItem key={index} value={item.value}>
-          <AccordionTrigger>
+        <AccordionItem key={index} value={item.value} className="p-1">
+          <AccordionTrigger className="p-2">
             <div className="flex justify-between items-center w-full">
               <span>
                 <img
@@ -70,7 +67,7 @@ const Tables: FC<TablesProps> = ({ onSelect }) => {
           </AccordionTrigger>
           <AccordionContent className="flex items-center space-x-2">
             <div className="flex items-center space-x-2" onClick={onSelect}>
-              <code>{item.code}</code>
+              <code className="px-2">{item.code}</code>
               <ChevronsRight size={18} />
             </div>
           </AccordionContent>

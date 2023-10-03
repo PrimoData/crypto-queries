@@ -1,10 +1,12 @@
 // components/LiveStream.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import { PlusCircle } from 'lucide-react';
+import Spinner from '@/components/Spinner';
 const StreamrClient = require('streamr-client');
 
 type LiveStreamProps = {
@@ -77,17 +79,29 @@ const LiveStream: React.FC<LiveStreamProps & { selectedStream: string }> = ({
 
   return (
     <div>
-      {messages.map((message, index) => (
-        <Collapsible key={index}>
-          <CollapsibleTrigger>
-            Key: {JSON.stringify(message.key)}
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            Header:
-            <pre>{JSON.stringify(message.value, null, 2)}</pre>
-          </CollapsibleContent>
-        </Collapsible>
-      ))}
+      {!selectedStream ? null : messages.length === 0 ? (
+        <Spinner />
+      ) : (
+        messages.map((message, index) => (
+          <Collapsible
+            key={index}
+            className="bg-white shadow overflow-hidden sm:rounded-lg my-2"
+          >
+            <CollapsibleTrigger className="px-4 py-2 sm:px-6">
+              <h3 className="text-sm font-medium text-gray-900 flex justify-between items-center">
+                <span className="mr-2">Key: {JSON.stringify(message.key)}</span>
+                <PlusCircle size={18} />
+              </h3>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="border-t border-gray-200 px-4 sm:px-6">
+              <div className="text-sm font-medium text-gray-500">Header:</div>
+              <pre className="mt-1 text-sm text-gray-900 whitespace-pre-wrap">
+                {JSON.stringify(message.value, null, 2)}
+              </pre>
+            </CollapsibleContent>
+          </Collapsible>
+        ))
+      )}
     </div>
   );
 };

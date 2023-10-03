@@ -6,6 +6,7 @@
   background-color: #1eefa4 !important;
   color: black !important;
   border: none !important;
+  margin-left: 5px !important;
 }
 
 @layer base {

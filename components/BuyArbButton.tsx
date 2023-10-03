@@ -41,7 +41,7 @@ const SIDBadge = () => {
         <Badge
           variant="outline"
           className="text-white"
-          style={{ backgroundColor: '#3B82F6' }}
+          style={{ backgroundColor: '#3B82F6', borderColor: '#3B82F6' }}
         >
           <a href="https://space.id/tld/2" target="_blank">
             Get .arb domain

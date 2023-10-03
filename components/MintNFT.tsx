@@ -51,6 +51,7 @@ const MintNFT = ({
       connectWallet={{
         btnTitle: 'Create Query NFT',
       }}
+      className={'green-button'}
       contractAddress={contractAddress}
       {...(query ? null : { isDisabled: true })}
       onSuccess={(result) => alert('Created Query NFT!')}
