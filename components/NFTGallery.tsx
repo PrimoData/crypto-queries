@@ -18,7 +18,7 @@ const NFTGallery: FC<TablesProps> = ({ onSelect, queryType }) => {
 
   return (
     <>
-      <div className="overflow-hidden">
+      <div className="overflow-auto">
         {loadingNfts ? (
           <p>Loading...</p>
         ) : (
@@ -30,7 +30,9 @@ const NFTGallery: FC<TablesProps> = ({ onSelect, queryType }) => {
                   (nft) =>
                     nft.metadata.properties &&
                     'queryType' in nft.metadata.properties &&
-                    nft.metadata.properties?.queryType === queryType
+                    nft.metadata.properties?.queryType === queryType &&
+                    nft.metadata.id !== '5' && // demo NFT
+                    nft.metadata.id !== '6' // demo NFT
                 ) // Filter based on queryType
                 .map((nft, index) => (
                   <div

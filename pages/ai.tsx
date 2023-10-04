@@ -93,8 +93,11 @@ const AI = () => {
         </div>
 
         <div
-          style={{ display: 'flex', flexDirection: 'column', height: '40%' }}
-          className="overflow-auto"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '40%',
+          }}
         >
           <h1 className="text-2xl font-bold my-2 text-gray-800">
             AI Query NFTs
