@@ -8,7 +8,7 @@ import BuyArbButton from './BuyArbButton';
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 text-white shadow-lg">
-      <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+      <div className="mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
         <div className="flex justify-between items-center">
           <div>
             <p className="text-2xl font-bold text-white lg:text-3xl">

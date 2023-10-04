@@ -24,7 +24,7 @@ const IndexPage = () => {
   };
 
   return (
-    <div className="flex h-screen border-r -mt-24 pt-24">
+    <div className="flex h-screen -mt-24 pt-24">
       <div className="w-1/2 p-6 bg-gray-100 shadow-lg overflow-auto">
         <div
           style={{ display: 'flex', flexDirection: 'column' }}

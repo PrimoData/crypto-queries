@@ -19,7 +19,7 @@ const MintNFT = ({
 }) => {
   const [name, setName] = useState(null);
   const address = useAddress() ?? '';
-  const contractAddress = '0x4091Af43772F9B84e6eCA13ef358167C761D5cf9';
+  const contractAddress = '0x3f29674536d9faAB80899C3aa1B055b01C16DDbF';
   const { contract } = useContract(contractAddress);
   const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
 

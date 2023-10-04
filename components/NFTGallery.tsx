@@ -10,7 +10,7 @@ interface TablesProps {
 
 const NFTGallery: FC<TablesProps> = ({ onSelect, queryType }) => {
   const { contract: nftCollection } = useContract(
-    '0x4091Af43772F9B84e6eCA13ef358167C761D5cf9',
+    '0x3f29674536d9faAB80899C3aa1B055b01C16DDbF',
     'nft-collection'
   );
 
@@ -68,6 +68,16 @@ const NFTGallery: FC<TablesProps> = ({ onSelect, queryType }) => {
                           }`}
                         </Badge>
                       )}
+                    <Badge variant="outline" className="bg-blue-500">
+                      <a
+                        href={`https://arbiscan.io/token/0x3f29674536d9faAB80899C3aa1B055b01C16DDbF?a=${nft.metadata.id}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-white"
+                      >
+                        View on Arbiscan
+                      </a>
+                    </Badge>
                   </div>
                 ))}
           </div>
